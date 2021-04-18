@@ -173,6 +173,11 @@ public class Builder
 
         File maven;
         String m2Home = System.getenv( "M2_HOME" );
+
+        if (m2Home == null) {
+            m2Home = System.getenv("MAVEN_HOME");
+        }
+
         if ( m2Home == null || !( maven = new File( m2Home ) ).exists() )
         {
             maven = new File( "apache-maven-3.2.5" );
